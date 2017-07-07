@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="First Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewfName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextfName"
+        android:hint="First Name" />
+    <TextView
+        android:text="Last Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewlName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextlName"
+        android:hint="Last Name" />
+    <TextView
+        android:text="Father's Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:hint="Name" />
+    <TextView
+        android:text="Mother's Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:hint="Name" />
+    <TextView
+        android:text="Phone Number"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewPhN" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextPhN"
+        android:hint="0000000000" />
+    <TextView
+        android:text="Alternate Number"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewAltN" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextAltN"
+        android:hint="0000000000" />
+    <TextView
+        android:text="Email ID"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEmail" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextEmail"
+        android:hint="name@provider.com" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Gender"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="102.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textViewGender" />
+        <RadioButton
+            android:text="Male"
+            android:layout_width="91.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/radioBtnMale" />
+        <RadioButton
+            android:text="Female"
+            android:layout_width="84.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/radioBtnFemale" />
+    </LinearLayout>
+    <Button
+        android:text="Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegister2" />
+</LinearLayout>

@@ -1,0 +1,142 @@
+@model yujvidya.Models.StudentDetail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+		<dt>
+            @Html.DisplayNameFor(model => model.Person.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.LastName)
+        </dd>
+		<dt>
+            @Html.DisplayNameFor(model => model.Person.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.BirthDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.BirthDate)
+        </dd>
+		<dt>
+            @Html.DisplayNameFor(model => model.Person.MobileNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.MobileNumber)
+        </dd>
+		<dt>
+            @Html.DisplayNameFor(model => model.Details.Comments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Details.Comments)
+        </dd>
+
+		<dt>
+            @Html.DisplayNameFor(model => model.CareTakers)
+        </dt>
+		<dd>
+            <table class="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Relation</th>
+                    <th>Mobile Number</th>
+                </tr>
+                @foreach (var item in Model.CareTakers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MobileNumber)
+                        </td>
+                    </tr>
+                }
+            </table>
+		</dd>
+
+		<dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+					<th>Fee Detail</th>
+					<th style="text-align: right; padding-right: 20px;">Amount</th>
+					<th>Prefferd Batch</th>
+					<th>Payment Date</th> 
+					<th>Sent Acknowledgement</th>
+                </tr>
+
+				@{var cssVisiblity = "hidden"; }
+                @foreach (var item in Model.Enrollments)
+                {
+				    cssVisiblity = item.AllowEdit ? "visible" : "hidden";
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FromDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ToDate)
+                        </td>
+					    <td>
+                            @Html.DisplayFor(modelItem => item.Type.Name)
+                        </td>
+					    <td style="text-align: right; padding-right: 20px;">
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+					    <td>
+                            @Html.DisplayFor(modelItem => item.PreferredBatch.StartTime)
+                        </td>
+					    <td>
+                            @Html.DisplayFor(modelItem => item.PaymentDate)
+                        </td>
+					    <td>
+                            @Html.DisplayFor(modelItem => item.AcknowledgementSent)
+                        </td>
+					    <td class="@cssVisiblity">
+		                    <a asp-action="EditEnrollment" asp-route-id="@item.Id">Edit</a> |
+		                    <a asp-action="RenewEnrollment" asp-route-id="@item.PersonId">Renew</a>
+		                </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Person.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

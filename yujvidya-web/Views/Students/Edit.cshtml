@@ -1,0 +1,165 @@
+@model yujvidya.Models.StudentDetail
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Person.Id" />
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="Person.FirstName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Person.FirstName" class="form-control" />
+                    <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.LastName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Person.LastName" class="form-control" />
+                    <span asp-validation-for="Person.LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Gender" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Person.Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                        <option value="">-- Select Gender --</option>
+                    </select>
+                    <span asp-validation-for="Person.Gender" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.BirthDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="date" asp-for="Person.BirthDate" class="form-control" />
+                    <span asp-validation-for="Person.BirthDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MobileNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Person.MobileNumber" class="form-control" />
+                    <span asp-validation-for="Person.MobileNumber" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+		<div class="form-group">
+			@{var j = 1;}
+            @for (int i = 0; i < Model.CareTakers.Count; i++)
+            {
+                <input type="hidden" asp-for="CareTakers[i].Id" class="hidden-image" />
+			    <input type="hidden" asp-for="CareTakers[i].PersonId" class="hidden-image" />
+			    <div class="form-group">
+	                <label class="col-md-2 control-label">Contact Person @j</label>
+	            </div>
+	            <div class="form-group">
+	                <label asp-for="CareTakers[i].FirstName" class="col-md-2 control-label"></label>
+	                <div class="col-md-10">
+	                    <input asp-for="CareTakers[i].FirstName" class="form-control" />
+	                    <span asp-validation-for="CareTakers[i].FirstName" class="text-danger"></span>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label asp-for="CareTakers[i].LastName" class="col-md-2 control-label"></label>
+	                <div class="col-md-10">
+	                    <input asp-for="CareTakers[i].LastName" class="form-control" />
+	                    <span asp-validation-for="CareTakers[i].LastName" class="text-danger"></span>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label asp-for="CareTakers[i].Type" class="col-md-2 control-label"></label>
+	                <div class="col-md-10">
+	                    <select asp-for="CareTakers[i].Type" class="form-control" asp-items="Html.GetEnumSelectList<CareTakerType>()">
+	                        <option value="">-- Select Relation --</option>
+	                    </select>
+	                    <span asp-validation-for="CareTakers[i].Type" class="text-danger" />
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label asp-for="CareTakers[i].MobileNumber" class="col-md-2 control-label"></label>
+	                <div class="col-md-10">
+	                    <input asp-for="CareTakers[i].MobileNumber" class="form-control" />
+	                    <span asp-validation-for="CareTakers[i].MobileNumber" class="text-danger"></span>
+	                </div>
+	            </div>
+			    j++;
+            }
+        </div>
+
+		<div class="form-group">
+            <div class="form-group">
+                <label asp-for="Details.Comments" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <textarea asp-for="Details.Comments" rows="5" cols="40"></textarea>
+                    <span asp-validation-for="Details.Comments" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+		<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+		<dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Fee Detail</th>
+                    <th style="text-align: right; padding-right: 20px;">Amount</th>
+                    <th>Prefferd Batch</th>
+                    <th>Payment Date</th> 
+                    <th>Sent Acknowledgement</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FromDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ToDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type.Name)
+                        </td>
+                        <td style="text-align: right; padding-right: 20px;">
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PreferredBatch.StartTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AcknowledgementSent)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

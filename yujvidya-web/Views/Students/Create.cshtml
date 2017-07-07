@@ -1,0 +1,197 @@
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/js/EnrollmentValidation.js"></script>
+
+@model yujvidya.Models.RegistrationData
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		
+		<div class="form-group">
+			<div class="form-group">
+	            <label asp-for="Person.FirstName" class="col-md-2 control-label"></label>
+	            <div class="col-md-10">
+	                <input asp-for="Person.FirstName" class="form-control" />
+	                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label asp-for="Person.LastName" class="col-md-2 control-label"></label>
+	            <div class="col-md-10">
+	                <input asp-for="Person.LastName" class="form-control" />
+	                <span asp-validation-for="Person.LastName" class="text-danger"></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label asp-for="Person.Gender" class="col-md-2 control-label"></label>
+	            <div class="col-md-10">
+	                <select asp-for="Person.Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+	                    <option value="">-- Select Gender --</option>
+	                </select>
+	                <span asp-validation-for="Person.Gender" class="text-danger" />
+	            </div>
+	        </div>
+			<div class="form-group">
+	            <label asp-for="Person.BirthDate" class="col-md-2 control-label"></label>
+	            <div class="col-md-10">
+	                <input type="date" asp-for="Person.BirthDate" class="form-control" />
+	                <span asp-validation-for="Person.BirthDate" class="text-danger"></span>
+	            </div>
+	        </div>
+			<div class="form-group">
+	            <label asp-for="Person.MobileNumber" class="col-md-2 control-label"></label>
+	            <div class="col-md-10">
+	                <input asp-for="Person.MobileNumber" class="form-control" />
+	                <span asp-validation-for="Person.MobileNumber" class="text-danger"></span>
+	            </div>
+	        </div>
+		</div>
+		
+		<div class="form-group">
+			<div class="form-group">
+                <label class="col-md-2 control-label">Contact Person 1</label>
+			</div>
+			<div class="form-group">
+                <label asp-for="CareTaker1.FirstName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker1.FirstName" class="form-control" />
+                    <span asp-validation-for="CareTaker1.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CareTaker1.LastName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker1.LastName" class="form-control" />
+                    <span asp-validation-for="CareTaker1.LastName" class="text-danger"></span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="CareTaker1.Type" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="CareTaker1.Type" class="form-control" asp-items="Html.GetEnumSelectList<CareTakerType>()">
+                        <option value="">-- Select Relation --</option>
+                    </select>
+                    <span asp-validation-for="CareTaker1.Type" class="text-danger" />
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="CareTaker1.MobileNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker1.MobileNumber" class="form-control" />
+                    <span asp-validation-for="CareTaker1.MobileNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+			<div class="form-group">
+			    <label class="col-md-2 control-label">Contact Person 2</label>
+			</div>
+            <div class="form-group">
+                <label asp-for="CareTaker2.FirstName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker2.FirstName" class="form-control" />
+                    <span asp-validation-for="CareTaker2.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CareTaker2.LastName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker2.LastName" class="form-control" />
+                    <span asp-validation-for="CareTaker2.LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CareTaker2.Type" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="CareTaker2.Type" class="form-control" asp-items="Html.GetEnumSelectList<CareTakerType>()">
+                        <option value="">-- Select Relation --</option>
+                    </select>
+                    <span asp-validation-for="CareTaker2.Type" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CareTaker2.MobileNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CareTaker2.MobileNumber" class="form-control" />
+                    <span asp-validation-for="CareTaker2.MobileNumber" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+		<div class="form-group">
+			<div class="form-group">
+                <label asp-for="Details.Comments" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <textarea asp-for="Details.Comments" rows="5" cols="40"></textarea>
+                    <span asp-validation-for="Details.Comments" class="text-danger"></span>
+                </div>
+            </div>
+	    </div>
+
+		<div class="form-group">
+			<div class="form-group">
+			    <label class="col-md-2 control-label">Enrollment Details</label>
+			</div>
+			<div class="form-group">
+                <label asp-for="Enrollment.EnrollmentTypeId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Enrollment.EnrollmentTypeId" id="EnrollmentTypeId" class="form-control" asp-items="@(new SelectList(ViewBag.EnrollmentTypes,"Id","Name"))">
+                        <option value="">-- Select Fee Detail --</option>
+                    </select>
+                    <span asp-validation-for="Enrollment.EnrollmentTypeId" class="text-danger" />
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="Enrollment.Amount" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="currency" asp-for="Enrollment.Amount" id="EnrollmentAmount" class="form-control" />
+                    <span asp-validation-for="Enrollment.Amount" class="text-danger" />
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="Enrollment.FromDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="date" asp-for="Enrollment.FromDate" id="EnrollmentFromDate" class="form-control" />
+                    <span asp-validation-for="Enrollment.FromDate" class="text-danger"></span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="Enrollment.ToDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="date" asp-for="Enrollment.ToDate" id="EnrollmentToDate" class="form-control" />
+                    <span asp-validation-for="Enrollment.ToDate" class="text-danger"></span>
+                </div>
+            </div>
+			<div class="form-group">
+                <label asp-for="Enrollment.PreferredBatchScheduleId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Enrollment.PreferredBatchScheduleId" class="form-control" asp-items="@(new SelectList(ViewBag.BatchSchedules,"Id","StartTime"))">
+                        <option value="">-- Select Batch --</option>
+                    </select>
+                    <span asp-validation-for="Enrollment.PreferredBatchScheduleId" class="text-danger" />
+                </div>
+            </div>
+		</div>
+		
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

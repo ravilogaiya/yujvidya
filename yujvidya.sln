@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{254CD20F-7919-43E7-AA56-75F20ED7C21D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "entity-definition", "entity-definition\entity-definition.csproj", "{A2C1E69C-ED6D-4E32-B8D4-5188F07A69BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yujvidya", "yujvidya\yujvidya.csproj", "{ED7892A6-BB77-46BC-B06E-9EE5884BFD8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yujvidya-web", "yujvidya-web\yujvidya-web.csproj", "{B872A417-D870-40E6-A362-D33327F1A12D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FFC19061-BB91-4B66-B54D-EB836F4269BE}"
+	ProjectSection(SolutionItems) = preProject
+		docs\commands.md = docs\commands.md
+		docs\Mobile UI.png = docs\Mobile UI.png
+		docs\yujvidya.env.bat = docs\yujvidya.env.bat
+		docs\yujvidya.env.sh = docs\yujvidya.env.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{254CD20F-7919-43E7-AA56-75F20ED7C21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254CD20F-7919-43E7-AA56-75F20ED7C21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254CD20F-7919-43E7-AA56-75F20ED7C21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254CD20F-7919-43E7-AA56-75F20ED7C21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C1E69C-ED6D-4E32-B8D4-5188F07A69BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C1E69C-ED6D-4E32-B8D4-5188F07A69BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C1E69C-ED6D-4E32-B8D4-5188F07A69BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C1E69C-ED6D-4E32-B8D4-5188F07A69BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7892A6-BB77-46BC-B06E-9EE5884BFD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7892A6-BB77-46BC-B06E-9EE5884BFD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7892A6-BB77-46BC-B06E-9EE5884BFD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7892A6-BB77-46BC-B06E-9EE5884BFD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B872A417-D870-40E6-A362-D33327F1A12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B872A417-D870-40E6-A362-D33327F1A12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B872A417-D870-40E6-A362-D33327F1A12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B872A417-D870-40E6-A362-D33327F1A12D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

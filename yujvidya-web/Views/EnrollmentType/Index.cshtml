@@ -1,0 +1,50 @@
+@model IEnumerable<yujvidya.Models.EnrollmentType>
+@{
+    ViewData["Title"] = "Fee Details";
+}
+<h2>Fee Details</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="text-align: right; padding-right: 50px;">
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+			<th style="text-align: right; padding-right: 20px;">
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+			<th>
+                @Html.DisplayNameFor(model => model.DurationType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td style="text-align: right; padding-right: 50px;">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+			    <td style="text-align: right; padding-right: 20px;">
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+			    <td>
+                    @Html.DisplayFor(modelItem => item.DurationType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

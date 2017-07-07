@@ -1,0 +1,66 @@
+@model yujvidya.Models.EnrollmentType
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Fee Detail</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Id" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Id)
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+		<div class="form-group">
+            <label asp-for="Duration" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DurationType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="DurationType" class="form-control" asp-items="Html.GetEnumSelectList<DurationType>()">
+                    <option value="">-- Select Type --</option>
+                </select>
+                <span asp-validation-for="DurationType" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

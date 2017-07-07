@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  yujvidya-web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+  yujvidya:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
