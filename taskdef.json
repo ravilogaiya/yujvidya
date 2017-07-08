@@ -1,0 +1,18 @@
+{
+    "family": "yujviya-west",
+    "containerDefinitions": [
+        {
+            "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+            "name": "yujviya-west",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 5002,
+                    "hostPort": 5002
+                }
+            ]
+        }
+    ]
+}
