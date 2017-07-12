@@ -4,7 +4,7 @@ services:
   yujvidya-web:
     image: yujvidya-web
     build:
-      context: ./yujvidya-web
+      context: yujvidya.azurecr.io/yujvidya-web:BuildNumber
       dockerfile: Dockerfile
     ports:
       - "5002:5002"
@@ -18,7 +18,7 @@ services:
   yujvidya:
     image: yujvidya
     build:
-      context: ./yujvidya
+      context: yujvidya.azurecr.io/yujvidya:BuildNumber
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
@@ -37,7 +37,7 @@ services:
       - YV_SMS_SENDER=${YV_SMS_SENDER}
 
   postgres:
-    image: postgres
+    image: yujvidya.azurecr.io/postgres:latest
     environment:
       - POSTGRES_PASSWORD=${YV_DB_PASSWORD}
     ports:
