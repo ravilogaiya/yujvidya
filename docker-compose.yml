@@ -1,5 +1,8 @@
 version: '3'
 
+networks: 
+  yujvidya:
+    driver: overlay
 services:
   yujvidya-web:
     image: yujvidya.azurecr.io/yujvidya-web:BuildNumber
