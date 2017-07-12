@@ -2,9 +2,9 @@ version: '3'
 
 services:
   yujvidya-web:
-    image: yujvidya-web
+    image: yujvidya.azurecr.io/yujvidya-web:BuildNumber
     build:
-      context: yujvidya.azurecr.io/yujvidya-web:BuildNumber
+      context: ./yujvidya-web
       dockerfile: Dockerfile
     ports:
       - "5002:5002"
@@ -16,9 +16,9 @@ services:
       - YV_API_PORT=5001
 
   yujvidya:
-    image: yujvidya
+    image: yujvidya.azurecr.io/yujvidya:BuildNumber
     build:
-      context: yujvidya.azurecr.io/yujvidya:BuildNumber
+      context: ./yujvidya
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
