@@ -37,7 +37,7 @@ services:
       - YV_SMS_SENDER=${YV_SMS_SENDER}
 
   postgres:
-    image: yujvidya.azurecr.io/postgres:latest
+    image: postgres:latest
     environment:
       - POSTGRES_PASSWORD=${YV_DB_PASSWORD}
     ports:
