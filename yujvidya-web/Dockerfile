@@ -5,4 +5,4 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 ADD ./output /app
 WORKDIR /app
 
-ENTRYPOINT ["dotnet", "yujvidya-web.dll"]
+ENTRYPOINT ["dotnet ", "yujvidya-web.dll"]
