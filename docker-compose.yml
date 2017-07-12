@@ -3,6 +3,8 @@ version: '3'
 services:
   yujvidya-web:
     image: yujvidya.azurecr.io/yujvidya-web:BuildNumber
+    networks: 
+      - yujvidya
     build:
       context: ./yujvidya-web
       dockerfile: Dockerfile
@@ -17,6 +19,8 @@ services:
 
   yujvidya:
     image: yujvidya.azurecr.io/yujvidya:BuildNumber
+    networks: 
+      - yujvidya
     build:
       context: ./yujvidya
       dockerfile: Dockerfile
@@ -38,6 +42,8 @@ services:
 
   postgres:
     image: yujvidya.azurecr.io/postgres:latest
+    networks: 
+      - yujvidya
     environment:
       - POSTGRES_PASSWORD=${YV_DB_PASSWORD}
     ports:
