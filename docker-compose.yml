@@ -1,44 +1,30 @@
 version: '2'
+networks: 
+  yujvidyanet:
+    driver: overlay
 
 services:
   yujvidya-web:
     image: yujvidya.azurecr.io/yujvidya-web:BuildNumber
-    build:
-      context: ./yujvidya-web
-      dockerfile: Dockerfile
+    networks: 
+      - yujvidyanet
     ports:
       - "5002:5002"
     depends_on:
       - yujvidya
 
-    environment:
-      - YV_API_HOST=yujvidya
-      - YV_API_PORT=5001
-
   yujvidya:
     image: yujvidya.azurecr.io/yujvidya:BuildNumber
-    build:
-      context: ./yujvidya
-      dockerfile: Dockerfile
+    networks: 
+      - yujvidyanet
     ports:
       - "5001:5001"
     depends_on:
       - postgres
-        
-    environment:
-      - YV_DB_USERID=${YV_DB_USERID}
-      - YV_DB_PASSWORD=${YV_DB_PASSWORD}
-      - YV_DB_SERVER=postgres
-      - YV_DB_PORT=5432
-      - YV_DB_NAME=yujvidya_db
-      - YV_SMS_URL=https://www.smsgatewayhub.com
-      - YV_SMS_USER=${YV_SMS_USER}
-      - YV_SMS_PASSWORD=${YV_SMS_PASSWORD}
-      - YV_SMS_SENDER=${YV_SMS_SENDER}
 
   postgres:
-    image: postgres:latest
-    environment:
-      - POSTGRES_PASSWORD=${YV_DB_PASSWORD}
+    image: postgres
+    networks: 
+      - yujvidyanet
     ports:
       - "5432:5432"
