@@ -1,13 +1,8 @@
 version: '2'
-networks: 
-  yujvidyanet:
-    driver: overlay
 
 services:
   yujvidya-web:
     image: yujvidya.azurecr.io/yujvidya-web:BuildNumber
-    networks: 
-      - yujvidyanet
     ports:
       - "5002:5002"
     depends_on:
@@ -15,8 +10,6 @@ services:
 
   yujvidya:
     image: yujvidya.azurecr.io/yujvidya:BuildNumber
-    networks: 
-      - yujvidyanet
     ports:
       - "5001:5001"
     depends_on:
@@ -24,7 +17,5 @@ services:
 
   postgres:
     image: postgres
-    networks: 
-      - yujvidyanet
     ports:
       - "5432:5432"
