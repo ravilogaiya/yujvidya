@@ -7,6 +7,7 @@ services:
       - "5002:5002"
     depends_on:
       - yujvidya
+      - helloworld
 
   yujvidya:
     image: yujvidya.azurecr.io/yujvidya:BuildNumber
@@ -14,6 +15,12 @@ services:
       - "5001:5001"
     depends_on:
       - postgres
+      - helloworld
+
+  helloworld:
+    image: yujvidya.azurecr.io/helloworld:BuildNumber
+    ports:
+      - "5003:5003"
 
   postgres:
     image: postgres
