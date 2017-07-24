@@ -1,0 +1,68 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "yujvidya-web",
+      "environment": [
+        {
+          "YV_API_HOST": "yujvidya",
+          "YV_API_PORT": "5001"
+        }
+      ],
+      "links": [
+        "yujvidya"
+      ],
+      "image": "yujvidya-web",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5002,
+          "hostPort": 5002
+        }
+      ],
+      "memory": 100,
+      "cpu": 1
+    },
+    {
+      "name": "yujvidya",
+      "environment": [
+        {
+          "YV_DB_USERID": "",
+          "YV_DB_PASSWORD": "",
+          "YV_DB_SERVER": "postgres",
+          "YV_DB_PORT": 5432,
+          "YV_DB_NAME": "yujvidya_db",
+          "YV_SMS_URL": "https://www.smsgatewayhub.com",
+          "YV_SMS_USER": "",
+          "YV_SMS_PASSWORD": "",
+          "YV_SMS_SENDER": ""
+        }
+      ],
+      "links": [
+        "postgres"
+      ],
+      "image": "yujvidya",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5001,
+          "hostPort": 5001
+        }
+      ],
+      "memory": 100,
+      "cpu": 1
+    },
+    {
+      "environment": [
+        {
+          "POSTGRES_PASSWORD": ""
+        }
+      ],
+      "name": "postgres",
+      "image": "postgres",
+      "cpu": 1,
+      "memory": 100,
+      "essential": true
+    }
+  ],
+  "family": "yujvidya"
+}
