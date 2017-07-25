@@ -273,3 +273,4 @@ __pycache__/
 lib/
 output/
 wwwroot/
+ecs-task-definition.json
